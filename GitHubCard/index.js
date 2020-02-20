@@ -96,3 +96,20 @@ bio.textContent = `bio: ${squid.data.bio}`;
 
 return cardDiv;
 }
+
+
+//axios call
+
+followersArray.forEach(user => {
+  axios
+  .get(`https://api.github.com/users/${user}`)
+  .then(res => {
+    let multiCards = document.querySelector('.cards');
+    multiCards.appendChild(cardGetter(res));
+    console.log(res)
+  })
+  .catch(err => {
+    console.log(err)
+  })
+})
+

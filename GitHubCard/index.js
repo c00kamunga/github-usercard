@@ -66,4 +66,21 @@ function cardGetter(squid){
   const followers = document. createElement('p');
   const following = document. createElement('p');
   const bio = document.createElement('p');
+
+cardDiv.classList.add('card');
+cardInfo.classList.add('card-info');
+name.classList.add('name');
+userName.classList.add('userName');
+
+
+
+
+
+
+
+
+
+
+
+
 }

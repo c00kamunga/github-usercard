@@ -83,4 +83,16 @@ cardInfo.appendChild(anchor);
 cardInfo.appendChild(followers);
 cardInfo.appendChild(following);
 cardInfo.appendChild(bio);
+
+image.setAttribute('src', squid.data.avatar_url);
+name.textContent = squid.data.name;
+userName.textContent = squid.data.login;
+location.textContent = `location: ${squid.data.location}`;
+profile.textContent = `profile:`;
+anchor.setAttribute('href', squid.data.url);
+followers.textContent = `followers: ${squid.data.followers}`;
+following.textContent = `following: ${squid.data.following}`;
+bio.textContent = `bio: ${squid.data.bio}`;
+
+return cardDiv;
 }

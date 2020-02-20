@@ -73,14 +73,14 @@ name.classList.add('name');
 userName.classList.add('userName');
 
 
-
-
-
-
-
-
-
-
-
-
+cardDiv.appendChild(image);
+cardDiv.appendChild(cardInfo);
+cardInfo.appendChild(name);
+cardInfo.appendChild(userName);
+cardInfo.appendChild(location);
+cardInfo.appendChild(profile);
+cardInfo.appendChild(anchor);
+cardInfo.appendChild(followers);
+cardInfo.appendChild(following);
+cardInfo.appendChild(bio);
 }

@@ -24,7 +24,7 @@
           user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const followersArray = ['tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell', 'c00kamunga', 'TJ-Feledy'];
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
@@ -53,3 +53,63 @@ const followersArray = [];
   luishrd
   bigknell
 */
+
+function cardGetter(squid){
+  const cardDiv = document.createElement('div');
+  const image = document.createElement('img');
+  const cardInfo = document.createElement('div');
+  const name = document.createElement('h3');
+  const userName = document.createElement('p')
+  const location = document.createElement('p');
+  const profile = document.createElement('p');
+  const anchor = document.createElement('a');
+  const followers = document. createElement('p');
+  const following = document. createElement('p');
+  const bio = document.createElement('p');
+
+cardDiv.classList.add('card');
+cardInfo.classList.add('card-info');
+name.classList.add('name');
+userName.classList.add('userName');
+
+
+cardDiv.appendChild(image);
+cardDiv.appendChild(cardInfo);
+cardInfo.appendChild(name);
+cardInfo.appendChild(userName);
+cardInfo.appendChild(location);
+cardInfo.appendChild(profile);
+cardInfo.appendChild(anchor);
+cardInfo.appendChild(followers);
+cardInfo.appendChild(following);
+cardInfo.appendChild(bio);
+
+image.setAttribute('src', squid.data.avatar_url);
+name.textContent = squid.data.name;
+userName.textContent = squid.data.login;
+location.textContent = `location: ${squid.data.location}`;
+profile.textContent = `profile:`;
+anchor.setAttribute('href', squid.data.url);
+followers.textContent = `followers: ${squid.data.followers}`;
+following.textContent = `following: ${squid.data.following}`;
+bio.textContent = `bio: ${squid.data.bio}`;
+
+return cardDiv;
+}
+
+
+//axios call
+
+followersArray.forEach(user => {
+  axios
+  .get(`https://api.github.com/users/${user}`)
+  .then(res => {
+    let multiCards = document.querySelector('.cards');
+    multiCards.appendChild(cardGetter(res));
+    console.log(res)
+  })
+  .catch(err => {
+    console.log(err)
+  })
+})
+
